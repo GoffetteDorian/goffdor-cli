@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const axios = require("axios").default;
+const ora = require("ora");
 const { getCode } = require("country-list");
 
 const countryName = process.argv.slice(2)[0];
@@ -12,11 +13,13 @@ const apiURL = "https://date.nager.at/api/v2/publicholidays";
 
 if (countryName) {
   const countryCode = getCode(countryName);
+  const spinner = ora(`For the year ${date}, these are the holidays:`).start();
+
   if (countryCode) {
     axios
       .get(apiURL + `/${date}/${countryCode}`)
       .then((response) => {
-        console.log(`For the year ${date}, these are the holidays:`);
+        spinner.succeed();
         response.data.map((item) => {
           const evt = new Date(item.date);
           const options = {
@@ -31,6 +34,7 @@ if (countryName) {
         });
       })
       .catch((error) => {
+        spinner.fail();
         console.log(error);
       });
   } else {

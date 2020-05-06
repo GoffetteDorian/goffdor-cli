@@ -1,7 +1,10 @@
 {
-  "name": "goffdor-cli",
+  "name": "@azhro/holidates",
   "version": "0.0.1",
-  "description": "Small command-line tool",
+  "bin": {
+    "holidates": "./index.js"
+  },
+  "description": "Get the holidays of your country in command line",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +21,7 @@
   "homepage": "https://github.com/GoffetteDorian/goffdor-cli#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "country-list": "^2.2.0"
+    "country-list": "^2.2.0",
+    "ora": "^4.0.4"
   }
 }
