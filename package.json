@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/GoffetteDorian/goffdor-cli#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "country-list": "^2.2.0",
     "ora": "^4.0.4"
   }
